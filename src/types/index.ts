@@ -3,16 +3,16 @@ import { PopulatedTransaction } from 'ethers'
 import { ComponentProps } from 'react'
 import type { TFunction } from 'react-i18next'
 
-import type { ENS } from '@ensdomains/ensjs'
+import type { ANS } from '@ansdomain/ensjs'
 import { Helper } from '@ensdomains/thorin'
 
-export type Profile = NonNullable<Awaited<ReturnType<ENS['getProfile']>>>
+export type Profile = NonNullable<Awaited<ReturnType<ANS['getProfile']>>>
 
 export type ProfileRecords = NonNullable<Profile['records']>
 
 export type RecordItem = NonNullable<ProfileRecords['texts']>[number]
 
-export type Name = NonNullable<Awaited<ReturnType<ENS['getNames']>>>[0]
+export type Name = NonNullable<Awaited<ReturnType<ANS['getNames']>>>[0]
 
 interface TransactionDisplayItemBase {
   label: string
@@ -55,14 +55,14 @@ export type ProfileEditorType = {
     [key: string]: string
   }
 }
-export type PublicENS = PublicInterface<ENS>
+export type PublicANS = PublicInterface<ANS>
 
 export type HelperProps = ComponentProps<typeof Helper>
-export type ReturnedENS = { [key in keyof PublicENS]: Awaited<ReturnType<PublicENS[key]>> }
+export type ReturnedANS = { [key in keyof PublicANS]: Awaited<ReturnType<PublicANS[key]>> }
 
 export interface Transaction<Data> {
   displayItems: (data: any, t: TFunction<'translation', undefined>) => TransactionDisplayItem[]
-  transaction: (signer: JsonRpcSigner, ens: PublicENS, data: Data) => Promise<PopulatedTransaction>
+  transaction: (signer: JsonRpcSigner, ens: PublicANS, data: Data) => Promise<PopulatedTransaction>
   helper?: (data: any, t: TFunction<'translation', undefined>) => undefined | HelperProps
   backToInput?: boolean
 }
@@ -80,6 +80,6 @@ export type FuseObj = {
 
 export type EthAddress = string
 
-export type CurrencyUnit = 'eth' | 'fiat'
+export type CurrencyUnit = 'arb' | 'fiat'
 export type FiatUnit = 'usd'
-export type CurrencyDisplay = 'eth' | FiatUnit
+export type CurrencyDisplay = 'arb' | FiatUnit

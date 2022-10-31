@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import styled, { css } from 'styled-components'
 import { useAccount } from 'wagmi'
 
-import { BaseRegistrationParams } from '@ensdomains/ensjs/utils/registerHelpers'
+import { BaseRegistrationParams } from '@ansdomain/ensjs/utils/registerHelpers'
 import {
   AlertSVG,
   Button,

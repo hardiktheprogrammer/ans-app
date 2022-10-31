@@ -19,7 +19,7 @@ const makeNameItem = (isSubname: boolean) => (_: any, index: number) => {
     isMigrated: true,
     name: `${index}.eth`,
     parent: {
-      name: 'eth',
+      name: 'arb',
     },
     type: 'domain',
   }

@@ -12,7 +12,7 @@ export const networkName = {
   // eslint-disable-next-line @typescript-eslint/naming-convention
   '3': 'ropsten',
   // eslint-disable-next-line @typescript-eslint/naming-convention
-  '1337': 'local',
+  '421613': 'local',
 }
 
 interface ResolverAddresses {
@@ -39,7 +39,7 @@ export const RESOLVER_ADDRESSES: ResolverAddresses = {
     '0x4B1488B7a6B320d2D721406204aBc3eeAa9AD329',
   ],
   // eslint-disable-next-line @typescript-eslint/naming-convention
-  '1337': [
+  '421613': [
     '0x4976fb03C32e5B8cfe2b6cCB31c09Ba78EBaBa41',
     '0xdaaf96c344f63131acadd0ea35170e7892d3dfba',
     '0x226159d592e2b063810a10ebf6dcbada94ed68b8',

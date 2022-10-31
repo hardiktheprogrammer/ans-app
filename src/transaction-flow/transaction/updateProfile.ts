@@ -1,8 +1,8 @@
 import type { JsonRpcSigner } from '@ethersproject/providers'
 
-import { RecordOptions } from '@ensdomains/ensjs/utils/recordHelpers'
+import { RecordOptions } from '@ansdomain/ensjs/utils/recordHelpers'
 
-import { PublicENS, Transaction, TransactionDisplayItem } from '@app/types'
+import { PublicANS, Transaction, TransactionDisplayItem } from '@app/types'
 
 type Data = {
   name: string
@@ -18,7 +18,7 @@ const displayItems = ({ name }: Data): TransactionDisplayItem[] => [
   },
 ]
 
-const transaction = (signer: JsonRpcSigner, ens: PublicENS, data: Data) => {
+const transaction = (signer: JsonRpcSigner, ens: PublicANS, data: Data) => {
   return ens.setRecords.populateTransaction(data.name, {
     records: data.records,
     resolverAddress: data.resolver,

@@ -21,7 +21,7 @@ import { useSelfAbilities } from '@app/hooks/useSelfAbilities'
 import { useWrapperExists } from '@app/hooks/useWrapperExists'
 import { Content } from '@app/layouts/Content'
 import { ContentGrid } from '@app/layouts/ContentGrid'
-import { ReturnedENS } from '@app/types'
+import { ReturnedANS } from '@app/types'
 import { useBreakpoint } from '@app/utils/BreakpointProvider'
 
 const DetailsContainer = styled.div(
@@ -106,8 +106,8 @@ export const Details = ({
   isCached,
 }: {
   expiryDate: Date | null | undefined
-  ownerData: ReturnedENS['getOwner']
-  wrapperData: ReturnedENS['getWrapperData']
+  ownerData: ReturnedANS['getOwner']
+  wrapperData: ReturnedANS['getWrapperData']
   breakpoints: ReturnType<typeof useBreakpoint>
   normalisedName: string
   chainId: number

@@ -42,7 +42,7 @@ const profiles = [
       },
       {
         type: 'address',
-        key: 'eth',
+        key: 'arb',
         value: '0x8e8...E3216',
         fullValue: '0x8e8Db5CcEF88cca9d624701Db544989C996E3216',
       },
@@ -91,7 +91,7 @@ const profiles = [
       },
       {
         type: 'address',
-        key: 'eth',
+        key: 'arb',
         value: '0xFe8...D44b7',
         fullValue: '0xFe89cc7aBB2C4183683ab71653C4cdc9B02D44b7',
       },

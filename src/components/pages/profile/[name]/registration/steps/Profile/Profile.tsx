@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import styled, { css } from 'styled-components'
 import { useAccount } from 'wagmi'
 
-import { RecordOptions } from '@ensdomains/ensjs/utils/recordHelpers'
+import { RecordOptions } from '@ansdomain/ensjs/utils/recordHelpers'
 import { Button, Dialog, DownIndicatorSVG, Helper, Tag, Typography, mq } from '@ensdomains/thorin'
 
 import { Banner } from '@app/components/@atoms/Banner/Banner'

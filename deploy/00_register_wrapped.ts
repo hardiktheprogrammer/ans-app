@@ -6,13 +6,13 @@ import { ethers } from 'hardhat'
 import { DeployFunction } from 'hardhat-deploy/types'
 import { HardhatRuntimeEnvironment } from 'hardhat/types'
 
-import { PublicResolver__factory } from '@ensdomains/ensjs/generated/factories/PublicResolver__factory'
-import { RecordOptions } from '@ensdomains/ensjs/utils/recordHelpers'
+import { PublicResolver__factory } from '@ansdomain/ensjs/generated/factories/PublicResolver__factory'
+import { RecordOptions } from '@ansdomain/ensjs/utils/recordHelpers'
 import {
   RegistrationParams,
   makeCommitment as generateCommitment,
   makeRegistrationData,
-} from '@ensdomains/ensjs/utils/registerHelpers'
+} from '@ansdomain/ensjs/utils/registerHelpers'
 
 import { nonceManager } from './.utils/nonceManager'
 

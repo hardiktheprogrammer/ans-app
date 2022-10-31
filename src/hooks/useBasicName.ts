@@ -1,8 +1,8 @@
 import { useQuery } from 'wagmi'
 
-import { truncateFormat } from '@ensdomains/ensjs/utils/format'
+import { truncateFormat } from '@ansdomain/ensjs/utils/format'
 
-import { ReturnedENS } from '@app/types/index'
+import { ReturnedANS } from '@app/types/index'
 import { useEns } from '@app/utils/EnsProvider'
 import { addRegistrationStatusToBatch, getRegistrationStatus } from '@app/utils/registrationStatus'
 
@@ -39,17 +39,17 @@ export const useBasicName = (name?: string | null, normalised?: boolean) => {
     },
   )
 
-  const ownerData = batchData?.[0] as ReturnedENS['getOwner']
+  const ownerData = batchData?.[0] as ReturnedANS['getOwner']
 
   const registrationStatus = batchData
     ? getRegistrationStatus(batchData, normalisedName)
     : undefined
 
-  const wrapperData = batchData?.[1] as ReturnedENS['getWrapperData']
+  const wrapperData = batchData?.[1] as ReturnedANS['getWrapperData']
 
-  const expiryData = batchData?.[2] as ReturnedENS['getExpiry']
+  const expiryData = batchData?.[2] as ReturnedANS['getExpiry']
 
-  const priceData = batchData?.[3] as ReturnedENS['getPrice']
+  const priceData = batchData?.[3] as ReturnedANS['getPrice']
 
   const expiryDate = expiryData?.expiry ? new Date(expiryData.expiry) : undefined
 

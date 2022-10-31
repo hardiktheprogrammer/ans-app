@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import styled, { css } from 'styled-components'
 
-import type { NamedFusesToBurn } from '@ensdomains/ensjs'
+import type { NamedFusesToBurn } from '@ansdomain/ensjs'
 import { Button, FlameBurnedSVG, FlameSVG, Helper, Typography } from '@ensdomains/thorin'
 
 import { Spacer } from '@app/components/@atoms/Spacer'

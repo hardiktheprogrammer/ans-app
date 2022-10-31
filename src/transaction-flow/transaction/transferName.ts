@@ -1,7 +1,7 @@
 import type { JsonRpcSigner } from '@ethersproject/providers'
 import type { TFunction } from 'react-i18next'
 
-import { EthAddress, PublicENS, Transaction, TransactionDisplayItem } from '@app/types'
+import { EthAddress, PublicANS, Transaction, TransactionDisplayItem } from '@app/types'
 
 type Data = {
   name: string
@@ -24,7 +24,7 @@ const displayItems = (
   },
 ]
 
-const transaction = (signer: JsonRpcSigner, ens: PublicENS, data: Data) => {
+const transaction = (signer: JsonRpcSigner, ens: PublicANS, data: Data) => {
   const tx = ens.transferName.populateTransaction(data.name, {
     newOwner: data.newOwner,
     contract: data.contract,

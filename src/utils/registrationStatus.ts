@@ -1,6 +1,6 @@
 import { BigNumber } from 'ethers'
 
-import type { PublicENS, ReturnedENS } from '@app/types/index'
+import type { PublicANS, ReturnedANS } from '@app/types/index'
 
 import { emptyAddress } from './constants'
 import { yearsToSeconds } from './utils'
@@ -17,7 +17,7 @@ export type RegistrationStatus =
 
 const start = (name: string) => {
   const labels = name.split('.')
-  const isDotETH = labels[labels.length - 1] === 'eth'
+  const isDotETH = labels[labels.length - 1] === 'arb'
   return {
     labels,
     isDotETH,
@@ -27,7 +27,7 @@ const start = (name: string) => {
 const is2ldEth = (isDotEth: boolean, labels: string[], requireValid?: boolean) =>
   isDotEth && labels.length === 2 && (requireValid ? labels[0].length >= 3 : true)
 
-export const addRegistrationStatusToBatch = (ens: PublicENS, name: string) => {
+export const addRegistrationStatusToBatch = (ens: PublicANS, name: string) => {
   const { getExpiry, getPrice, getOwner } = ens
   const { labels, isDotETH } = start(name)
   if (is2ldEth(isDotETH, labels, false)) {
@@ -40,8 +40,8 @@ export const addRegistrationStatusToBatch = (ens: PublicENS, name: string) => {
 }
 
 type BatchResult =
-  | [...any[], ReturnedENS['getExpiry'], ReturnedENS['getPrice']]
-  | [...any[], ReturnedENS['getOwner']]
+  | [...any[], ReturnedANS['getExpiry'], ReturnedANS['getPrice']]
+  | [...any[], ReturnedANS['getOwner']]
   | undefined
 
 export const getRegistrationStatus = (

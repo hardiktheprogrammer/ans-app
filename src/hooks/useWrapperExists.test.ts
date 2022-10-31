@@ -16,7 +16,7 @@ const mockGetContractAddress = jest.fn()
 describe('useWrapperExists', () => {
   mockUseChainId.mockReturnValue(1)
   mockGetContractAddress.mockReturnValue(() => '0x123')
-  it('should return false if ENS not ready', () => {
+  it('should return false if ANS not ready', () => {
     mockUseEns.mockReturnValue({
       ready: false,
       getContractAddress: mockGetContractAddress,

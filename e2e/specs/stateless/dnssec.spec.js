@@ -27,7 +27,7 @@ describe('Import DNSSEC name', () => {
     cy.findByText('0x70997970C51812dc3A010C7d01b50e0d17dc79C8').should('be.visible')
     cy.findByText('Check').click()
     cy.findByText(
-      "You don't appear to be the DNS Owner of this domain, but you can still add this name to ENS Registry.",
+      "You don't appear to be the DNS Owner of this domain, but you can still add this name to ANS Registry.",
     ).should('be.visible')
     cy.findByText('Continue').click()
     cy.findByText('You are importing a DNS name that you appear to not own.').should('be.visible')

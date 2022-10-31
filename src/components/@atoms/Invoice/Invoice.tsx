@@ -46,7 +46,7 @@ type Props = {
   unit?: CurrencyDisplay
 }
 
-export const Invoice = ({ totalLabel = 'Estimated total', unit = 'eth', items }: Props) => {
+export const Invoice = ({ totalLabel = 'Estimated total', unit = 'arb', items }: Props) => {
   const total = items
     .map(({ value }) => value)
     .filter((x) => !!x)

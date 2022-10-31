@@ -1,6 +1,6 @@
-# ENS App V3
+# ANS App V3
 
-The all new, all cool version of the ENS manager.
+The all new, all cool version of the ANS manager.
 
 ## EXTERNAL CONTRIBUTOR NOTICE
 
@@ -127,7 +127,7 @@ npm i -g yalc
 2. Run relevant update script within external repo, for example:
 
 ```bash
-# Example publish script for ENSjs, be aware this may have changed.
+# Example publish script for ANSjs, be aware this may have changed.
 pnpm publish:local:ensjs
 ```
 

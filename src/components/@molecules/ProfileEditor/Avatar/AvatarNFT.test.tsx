@@ -114,7 +114,7 @@ describe('<AvatarNFT />', () => {
     expect(screen.getByTestId('nft-3-0x3')).toBeVisible()
     expect(screen.getByTestId('nft-4-0x4')).toBeVisible()
   })
-  it('should not display ENS NFTs', async () => {
+  it('should not display ANS NFTs', async () => {
     global.fetch = jest.fn().mockResolvedValue({
       json: () => ({
         ownedNfts: Array.from(

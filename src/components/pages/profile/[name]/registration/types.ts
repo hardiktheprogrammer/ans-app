@@ -1,4 +1,4 @@
-import { RecordOptions } from '@ensdomains/ensjs/utils/recordHelpers'
+import { RecordOptions } from '@ansdomain/ensjs/utils/recordHelpers'
 
 import { FuseObj } from '@app/types'
 

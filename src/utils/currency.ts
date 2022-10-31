@@ -26,7 +26,7 @@ export const makeDisplay = (
     options.roundingPriority = 'lessPrecision'
     options.currency = undefined
     customSymbol = ` ${symbol}`
-  } else if (symbol === 'eth') {
+  } else if (symbol === 'arb') {
     options.minimumFractionDigits = 4
     options.maximumFractionDigits = 4
     options.currencyDisplay = 'name'

@@ -6,7 +6,7 @@ import { ethers } from 'hardhat'
 import { DeployFunction } from 'hardhat-deploy/types'
 import { HardhatRuntimeEnvironment } from 'hardhat/types'
 
-import { labelhash } from '@ensdomains/ensjs/utils/labels'
+import { labelhash } from '@ansdomain/ensjs/utils/labels'
 
 type Name = {
   label: string
@@ -111,7 +111,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const { getNamedAccounts, network } = hre
   const allNamedAccts = await getNamedAccounts()
 
-  const registry = await ethers.getContract('ENSRegistry')
+  const registry = await ethers.getContract('ANSRegistry')
   const controller = await ethers.getContract('LegacyETHRegistrarController')
   const publicResolver = await ethers.getContract('LegacyPublicResolver')
 

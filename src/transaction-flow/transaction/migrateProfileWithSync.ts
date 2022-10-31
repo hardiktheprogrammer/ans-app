@@ -1,8 +1,8 @@
 import type { JsonRpcSigner } from '@ethersproject/providers'
 
-import { RecordOptions } from '@ensdomains/ensjs/utils/recordHelpers'
+import { RecordOptions } from '@ansdomain/ensjs/utils/recordHelpers'
 
-import { Profile, PublicENS, RecordItem, Transaction, TransactionDisplayItem } from '@app/types'
+import { Profile, PublicANS, RecordItem, Transaction, TransactionDisplayItem } from '@app/types'
 import { recordItemToKeyValue } from '@app/utils/editor'
 
 import { contentHashToString } from '../../utils/contenthash'
@@ -55,7 +55,7 @@ export const syncRecords = (
   )
 }
 
-const transaction = async (signer: JsonRpcSigner, ens: PublicENS, data: Data) => {
+const transaction = async (signer: JsonRpcSigner, ens: PublicANS, data: Data) => {
   const profile = await ens.getProfile(data.name)
   if (!profile) throw new Error('No profile found')
   if (!profile.records) throw new Error('No records found')

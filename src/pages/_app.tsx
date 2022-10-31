@@ -114,7 +114,7 @@ const { provider, chains } = configureChains(
 )
 
 const { connectors } = getDefaultWallets({
-  appName: 'ENS',
+  appName: 'ANS',
   chains,
 })
 

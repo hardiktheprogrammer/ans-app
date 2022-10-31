@@ -10,11 +10,11 @@ import {
 } from '@app/transaction-flow/transaction'
 import { useEns } from '@app/utils/EnsProvider'
 
-type ENS = ReturnType<typeof useEns>
+type ANS = ReturnType<typeof useEns>
 type TransactionItem = ReturnType<typeof makeTransactionItem>
 
 export const fetchEstimateWithConfig =
-  (transactionsObj: Transaction, signer: JsonRpcSigner, ens: ENS) =>
+  (transactionsObj: Transaction, signer: JsonRpcSigner, ens: ANS) =>
   async (transaction: TransactionItem) => {
     const transactionName = transaction.name as TransactionName
     const populatedTransaction = await transactionsObj[transactionName].transaction(
@@ -48,7 +48,7 @@ export const useEstimateGasLimitForTransactions = (
       const fetchEstimate = fetchEstimateWithConfig(
         _transactions,
         signer as JsonRpcSigner,
-        ens as ENS,
+        ens as ANS,
       )
       const estimates = await Promise.all(transactions.map(fetchEstimate))
       const total = estimates.map((r) => r.gasLimit).reduce((a, b) => a.add(b))

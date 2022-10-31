@@ -51,5 +51,5 @@ export const isBrowser = !!(
 export const isDNSName = (name: string): boolean => {
   const labels = name?.split('.')
 
-  return !!labels && labels[labels.length - 1] !== 'eth'
+  return !!labels && labels[labels.length - 1] !== 'arb'
 }

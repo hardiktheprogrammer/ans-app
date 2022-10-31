@@ -16,7 +16,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   }
 
   const root = await ethers.getContract('Root', await ethers.getSigner(owner))
-  const registry = await ethers.getContract('ENSRegistry', await ethers.getSigner(owner))
+  const registry = await ethers.getContract('ANSRegistry', await ethers.getSigner(owner))
   const resolver = await ethers.getContract('PublicResolver', await ethers.getSigner(owner))
   const registrar = await ethers.getContract('BaseRegistrarImplementation')
   const controller = await ethers.getContract('ETHRegistrarController')
@@ -28,16 +28,16 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   })
 
   console.log('Temporarily setting owner of eth tld to owner ')
-  const tx = await root.setSubnodeOwner(labelHash('eth'), owner)
+  const tx = await root.setSubnodeOwner(labelHash('arb'), owner)
   await tx.wait()
 
   console.log('Set default resolver for eth tld to public resolver')
-  const tx111 = await registry.setResolver(namehash('eth'), resolver.address)
+  const tx111 = await registry.setResolver(namehash('arb'), resolver.address)
   await tx111.wait()
 
   console.log('Set interface implementor of eth tld for bulk renewal')
   const tx2 = await resolver.setInterface(
-    ethers.utils.namehash('eth'),
+    ethers.utils.namehash('arb'),
     '0x3150bfba',
     bulkRenewal.address,
   )
@@ -45,14 +45,14 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
   console.log('Set interface implementor of eth tld for registrar controller')
   const tx3 = await resolver.setInterface(
-    ethers.utils.namehash('eth'),
+    ethers.utils.namehash('arb'),
     '0xdf7ed181',
     controller.address,
   )
   await tx3.wait()
 
   console.log('Set owner of eth tld back to registrar')
-  const tx11 = await root.setSubnodeOwner(labelHash('eth'), registrar.address)
+  const tx11 = await root.setSubnodeOwner(labelHash('arb'), registrar.address)
   await tx11.wait()
 
   return true

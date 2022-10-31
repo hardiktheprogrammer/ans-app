@@ -8,7 +8,7 @@ import { Button, Typography } from '@ensdomains/thorin'
 import { CacheableComponent } from '@app/components/@atoms/CacheableComponent'
 import { AddressAvatar, AvatarWithZorb } from '@app/components/AvatarWithZorb'
 import { NFTWithPlaceholder } from '@app/components/NFTWithPlaceholder'
-import { ReturnedENS } from '@app/types'
+import { ReturnedANS } from '@app/types'
 import { useEns } from '@app/utils/EnsProvider'
 import { shortenAddress } from '@app/utils/utils'
 
@@ -141,8 +141,8 @@ export const NameDetailSnippet = ({
 }: {
   name: string
   expiryDate?: Date | null
-  ownerData: Exclude<ReturnedENS['getOwner'], undefined>
-  wrapperData: Exclude<ReturnedENS['getWrapperData'], undefined>
+  ownerData: Exclude<ReturnedANS['getOwner'], undefined>
+  wrapperData: Exclude<ReturnedANS['getWrapperData'], undefined>
   network: number
   showButton?: boolean
   dnsOwner?: string
@@ -222,8 +222,8 @@ export const NameSnippet = ({
   name: string
   network: number
   expiryDate?: Date | null
-  ownerData: Exclude<ReturnedENS['getOwner'], undefined>
-  wrapperData: Exclude<ReturnedENS['getWrapperData'], undefined>
+  ownerData: Exclude<ReturnedANS['getOwner'], undefined>
+  wrapperData: Exclude<ReturnedANS['getWrapperData'], undefined>
   showButton?: boolean
   dnsOwner?: string
   isCached: boolean

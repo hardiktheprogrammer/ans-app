@@ -67,7 +67,7 @@ const Description = styled(Typography)(
   `,
 )
 
-const StyledENS = styled.div(
+const StyledANS = styled.div(
   ({ theme }) => css`
     height: ${theme.space['12']};
   `,
@@ -100,11 +100,11 @@ export default function Page() {
   return (
     <>
       <Head>
-        <title>ENS</title>
+        <title>ANS</title>
       </Head>
       <StyledLeadingHeading>
         <LogoAndLanguage>
-          <StyledENS as={ENSWithGradient} />
+          <StyledANS as={ENSWithGradient} />
           <LanugageDropdown />
         </LogoAndLanguage>
         <HamburgerRoutes />

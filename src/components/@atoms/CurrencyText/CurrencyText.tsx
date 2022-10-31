@@ -9,13 +9,13 @@ type Props = {
   currency: CurrencyDisplay
 }
 
-export const CurrencyText = ({ eth, currency = 'eth' }: Props) => {
+export const CurrencyText = ({ eth, currency = 'arb' }: Props) => {
   const { data: ethPrice, loading } = useEthPrice()
 
   if (loading || !eth || !ethPrice) return null
 
-  if (currency === 'eth') {
-    return <>{makeDisplay(eth, 5, 'eth')}</>
+  if (currency === 'arb') {
+    return <>{makeDisplay(eth, 5, 'arb')}</>
   }
   return <>{makeDisplay(eth.mul(ethPrice).div(1e8), 2, currency, 18)}</>
 }

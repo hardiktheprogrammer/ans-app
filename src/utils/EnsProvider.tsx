@@ -1,25 +1,25 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from 'react'
 import { useProvider } from 'wagmi'
 
-import { ENS } from '@ensdomains/ensjs'
-import type { ContractName } from '@ensdomains/ensjs/contracts/types'
+import { ANS } from '@ansdomain/ensjs'
+import type { ContractName } from '@ansdomain/ensjs/contracts/types'
 
-const opts: ConstructorParameters<typeof ENS>[0] = {}
+const opts: ConstructorParameters<typeof ANS>[0] = {}
 
 if (process.env.NEXT_PUBLIC_PROVIDER && process.env.NEXT_PUBLIC_DEPLOYMENT_ADDRESSES) {
   const deploymentAddresses = JSON.parse(process.env.NEXT_PUBLIC_DEPLOYMENT_ADDRESSES!) as Record<
-    ContractName | 'ENSRegistry',
+    ContractName | 'ANSRegistry',
     string
   >
   opts.getContractAddress = () => (contractName) =>
-    deploymentAddresses[contractName === 'ENSRegistryWithFallback' ? 'ENSRegistry' : contractName]
+    deploymentAddresses[contractName === 'ANSRegistryWithFallback' ? 'ANSRegistry' : contractName]
 }
 
 if (process.env.NEXT_PUBLIC_GRAPH_URI) {
   opts.graphURI = process.env.NEXT_PUBLIC_GRAPH_URI
 }
 
-const defaultValue: ENS = new ENS(opts)
+const defaultValue: ANS = new ANS(opts)
 
 const EnsContext = createContext({ ...defaultValue, ready: false })
 

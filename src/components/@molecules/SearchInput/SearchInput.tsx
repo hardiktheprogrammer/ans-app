@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next'
 import useTransition, { TransitionState } from 'react-transition-state'
 import styled, { css } from 'styled-components'
 
-import { parseInputType, validateName } from '@ensdomains/ensjs/utils/validation'
+import { parseInputType, validateName } from '@ansdomain/ensjs/utils/validation'
 import { BackdropSurface, Portal, Typography, mq } from '@ensdomains/thorin'
 
 import { useLocalStorage } from '@app/hooks/useLocalStorage'
@@ -324,7 +324,7 @@ export const SearchInput = ({
     }
     if (selectedItem.type === 'name') {
       const labels = selectedItem.value.split('.')
-      const isDotETH = labels.length === 2 && labels[1] === 'eth'
+      const isDotETH = labels.length === 2 && labels[1] === 'arb'
       if (isDotETH && labels[0].length < 3) {
         return
       }

@@ -2,7 +2,7 @@ import type { JsonRpcSigner } from '@ethersproject/providers'
 import { BigNumber } from 'ethers'
 import { TFunction } from 'react-i18next'
 
-import { HelperProps, PublicENS, Transaction, TransactionDisplayItem } from '@app/types'
+import { HelperProps, PublicANS, Transaction, TransactionDisplayItem } from '@app/types'
 import { makeDisplay } from '@app/utils/currency'
 
 import { secondsToYears } from '../../utils/utils'
@@ -37,7 +37,7 @@ const displayItems = (
     label: 'cost',
     value: t('transaction.extendNames.costValue', {
       ns: 'transactionFlow',
-      value: makeDisplay(rentPrice, 5, 'eth'),
+      value: makeDisplay(rentPrice, 5, 'arb'),
     }),
   },
 ]
@@ -50,12 +50,12 @@ const helper = (data: Data, t: TFunction<'translation', undefined>): HelperProps
   }
 }
 
-const transaction = async (signer: JsonRpcSigner, ens: PublicENS, data: Data) => {
+const transaction = async (signer: JsonRpcSigner, ens: PublicANS, data: Data) => {
   const { names, duration } = data
   const labels = names.map((name) => {
     const parts = name.split('.')
     if (parts.length > 2) throw new Error('Currently only supports 1st level names')
-    if (parts[1] !== 'eth') throw new Error('Currently only supports .eth names')
+    if (parts[1] !== 'arb') throw new Error('Currently only supports .eth names')
     return parts[0]
   })
 

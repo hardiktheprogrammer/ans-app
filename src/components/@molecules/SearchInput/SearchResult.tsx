@@ -325,7 +325,7 @@ export const SearchResult = ({
   const clickable = useMemo(() => {
     if (type === 'name' || type === 'nameWithDotEth') {
       const labels = input.split('.')
-      const isDotETH = labels.length === 2 && labels[1] === 'eth'
+      const isDotETH = labels.length === 2 && labels[1] === 'arb'
       if (isDotETH && labels[0].length < 3) {
         return false
       }

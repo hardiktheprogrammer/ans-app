@@ -1,6 +1,6 @@
 import { ethers } from 'ethers'
 
-const provider = new ethers.providers.JsonRpcProvider('http://localhost:8545', 1337)
+const provider = new ethers.providers.JsonRpcProvider('http://localhost:8545', 421613)
 
 const rpcSendBatch = (items) =>
   fetch('http://localhost:8545', {

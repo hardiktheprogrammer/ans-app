@@ -1,9 +1,9 @@
 import type { JsonRpcSigner } from '@ethersproject/providers'
 import type { TFunction } from 'react-i18next'
 
-import type { NamedFusesToBurn } from '@ensdomains/ensjs'
+import type { NamedFusesToBurn } from '@ansdomain/ensjs'
 
-import { PublicENS, Transaction, TransactionDisplayItem } from '@app/types'
+import { PublicANS, Transaction, TransactionDisplayItem } from '@app/types'
 
 type Data = {
   name: string
@@ -31,7 +31,7 @@ const displayItems = (
   },
 ]
 
-const transaction = (signer: JsonRpcSigner, ens: PublicENS, data: Data) => {
+const transaction = (signer: JsonRpcSigner, ens: PublicANS, data: Data) => {
   const tx = ens.burnFuses.populateTransaction(data.name, {
     namedFusesToBurn: data.selectedFuses,
     signer,

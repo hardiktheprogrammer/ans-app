@@ -1,16 +1,16 @@
 import { useMemo } from 'react'
 
-import type { ENS } from '@ensdomains/ensjs'
+import type { ANS } from '@ansdomain/ensjs'
 
 import { useBasicName } from '@app/hooks/useBasicName'
 
 export const useSelfAbilities = (
   address: string | undefined,
-  ownerData: Awaited<ReturnType<ENS['getOwner']>> | undefined,
+  ownerData: Awaited<ReturnType<ANS['getOwner']>> | undefined,
   name?: string,
 ) => {
   const parent = name?.split('.')?.slice(1)?.join('.')
-  const is2LDEth = name?.split('.')?.length === 2 && name?.split('.')?.[1] === 'eth'
+  const is2LDEth = name?.split('.')?.length === 2 && name?.split('.')?.[1] === 'arb'
 
   const { ownerData: parentOwnerData } = useBasicName(parent)
 

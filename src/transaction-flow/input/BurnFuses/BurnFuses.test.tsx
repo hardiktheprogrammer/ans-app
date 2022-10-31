@@ -2,7 +2,7 @@ import { fireEvent, mockFunction, render, screen, waitFor } from '@app/test-util
 
 import { useRouter } from 'next/router'
 
-import { CurrentFuses } from '@ensdomains/ensjs/utils/fuses'
+import { CurrentFuses } from '@ansdomain/ensjs/utils/fuses'
 
 import { useGetWrapperData } from '@app/hooks/useGetWrapperData'
 
