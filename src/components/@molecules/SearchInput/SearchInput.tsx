@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 
 /* eslint-disable jsx-a11y/interactive-supports-focus */
+import { parseInputType, validateName } from '@ansdomain/ensjs/utils/validation'
 import { useQueryClient } from '@tanstack/react-query'
 import debounce from 'lodash/debounce'
 import { useRouter } from 'next/router'
@@ -11,7 +12,6 @@ import { useTranslation } from 'react-i18next'
 import useTransition, { TransitionState } from 'react-transition-state'
 import styled, { css } from 'styled-components'
 
-import { parseInputType, validateName } from '@ansdomain/ensjs/utils/validation'
 import { BackdropSurface, Portal, Typography, mq } from '@ensdomains/thorin'
 
 import { useLocalStorage } from '@app/hooks/useLocalStorage'

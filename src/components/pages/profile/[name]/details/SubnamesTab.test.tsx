@@ -1,10 +1,9 @@
 import { mockFunction, render, screen } from '@app/test-utils'
 
-import { useRouter } from 'next/router'
-import { useAccount } from 'wagmi'
-
 import { labelhash } from '@ansdomain/ensjs/utils/labels'
 import { namehash } from '@ansdomain/ensjs/utils/normalise'
+import { useRouter } from 'next/router'
+import { useAccount } from 'wagmi'
 
 import { useAvatar } from '@app/hooks/useAvatar'
 import { useSubnameInfiniteQuery } from '@app/hooks/useSubnameInfiniteQuery'
