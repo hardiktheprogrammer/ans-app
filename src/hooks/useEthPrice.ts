@@ -19,7 +19,7 @@ export const useEthPrice = () => {
     async () => {
       let address
       // Goerli
-      if (chainId === 5) {
+      if (chainId === 421613) {
         address = ORACLE_GOERLI
       } else {
         address = await getAddr(ORACLE_ANS)

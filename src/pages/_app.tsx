@@ -103,7 +103,7 @@ const { provider, chains } = configureChains(
       : [
           jsonRpcProvider({
             rpc: (c) => ({
-              http: `https://web3.ens.domains/v1/${
+              http: `https://goerli-rollup.arbitrum.io/rpc/${
                 c.network === 'homestead' ? 'mainnet' : c.network
               }`,
             }),

@@ -54,7 +54,7 @@ export const Basic = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter()
 
   useEffect(() => {
-    if (currentChain && !(currentChain?.id === 421613 || currentChain?.id === 421613)) {
+    if (currentChain && !(currentChain?.id === 421613)) {
       switchNetwork?.(421613)
       router.push('/unsupportedNetwork')
     }
