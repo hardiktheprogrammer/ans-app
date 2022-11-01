@@ -55,7 +55,7 @@ const transaction = async (signer: JsonRpcSigner, ens: PublicANS, data: Data) =>
   const labels = names.map((name) => {
     const parts = name.split('.')
     if (parts.length > 2) throw new Error('Currently only supports 1st level names')
-    if (parts[1] !== 'arb') throw new Error('Currently only supports .eth names')
+    if (parts[1] !== 'arb') throw new Error('Currently only supports .arb names')
     return parts[0]
   })
 

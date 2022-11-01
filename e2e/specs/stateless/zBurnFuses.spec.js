@@ -5,7 +5,7 @@ describe('Burn Fuses', () => {
     acceptMetamaskAccess(2, true)
   })
   it('should not allow owner to burn PCC', () => {
-    cy.visit('/profile/wrapped.eth')
+    cy.visit('/profile/wrapped.arb')
     cy.findByText('View Details').click()
     cy.findByText('Advanced').click()
     cy.findByTestId('accordion-fuses-edit').click()

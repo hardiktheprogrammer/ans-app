@@ -8,7 +8,7 @@ describe('Extend Names', () => {
 
     it('should be able to register multiple names on the address page', () => {
       cy.clearLocalStorage()
-      const NAMES = ['other-registrant.eth']
+      const NAMES = ['other-registrant.arb']
       cy.visit('/')
       connectFromExisting()
       cy.visit('/address/0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266')
@@ -60,7 +60,7 @@ describe('Extend Names', () => {
 
     it('should extend a single name', () => {
       cy.clearLocalStorage()
-      cy.visit('/profile/other-registrant.eth/details')
+      cy.visit('/profile/other-registrant.arb/details')
       connectFromExisting()
       cy.findByTestId('extend-button').should('be.visible')
       cy.findByTestId('expiry-label').should('be.visible')
@@ -120,7 +120,7 @@ describe('Extend Names', () => {
     })
 
     it('should be able to register multiple names on the names page', () => {
-      const NAMES = ['test123.eth', 'with-subnames.eth', 'to-be-wrapped.eth']
+      const NAMES = ['test123.arb', 'with-subnames.arb', 'to-be-wrapped.arb']
 
       cy.visit('/')
       connectFromExisting()
@@ -175,7 +175,7 @@ describe('Extend Names', () => {
     })
 
     it('should not show extend button on subnames', () => {
-      cy.visit('/profile/test.with-subnames.eth/details')
+      cy.visit('/profile/test.with-subnames.arb/details')
       connectFromExisting()
       cy.findByTestId('subnames-tab').click()
       cy.findByTestId('extend-subname-action', { timeout: 2000 }).should('not.exist')

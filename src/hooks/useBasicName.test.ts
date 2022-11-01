@@ -42,18 +42,18 @@ describe('useBasicName', () => {
   afterEach(() => {
     jest.clearAllMocks()
   })
-  it('should query for the expiry if the name is a 2LD .eth', async () => {
+  it('should query for the expiry if the name is a 2LD .arb', async () => {
     mockUseValidate.mockReturnValue({
       valid: true,
-      name: 'test.eth',
+      name: 'test.arb',
       labelCount: 2,
     })
 
-    renderHook(() => useBasicName('test.eth'))
+    renderHook(() => useBasicName('test.arb'))
     await waitFor(() => expect(mockBatch).toHaveBeenCalled())
     expect(mockGetExpiry.batch).toHaveBeenCalled()
   })
-  it('should not query for the expiry if not a 2LD .eth', () => {
+  it('should not query for the expiry if not a 2LD .arb', () => {
     mockUseValidate.mockReturnValue({
       valid: true,
       name: 'test.com',

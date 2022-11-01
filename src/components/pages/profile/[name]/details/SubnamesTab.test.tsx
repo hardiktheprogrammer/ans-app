@@ -27,7 +27,7 @@ const mockIntersectionObserver = jest.fn()
 
 const makeSubname = (_: any, i: number) => {
   const label = `test-${i}`
-  const name = `${label}.eth`
+  const name = `${label}.arb`
   const nameHash = namehash(name)
   const labelHash = labelhash(label)
   const owner = {
@@ -49,7 +49,7 @@ describe('SubnamesTab', () => {
   beforeAll(() => {
     mockUseRouter.mockReturnValue({
       query: {
-        name: 'nick.eth',
+        name: 'nick.arb',
       },
       replace: () => {},
     })
@@ -72,7 +72,7 @@ describe('SubnamesTab', () => {
   })
 
   const baseMockData = {
-    name: 'nick.eth',
+    name: 'nick.arb',
     network: 1,
     canEdit: false,
     isWrapped: false,
@@ -104,7 +104,7 @@ describe('SubnamesTab', () => {
     mockUseSubnamePagination.mockReturnValue(subnamesMockData)
     render(<SubnamesTab {...baseMockData} />)
     subnamesMockData.subnames.forEach((subname) =>
-      expect(screen.getByText(subname.truncatedName.replace('.eth', ''))).toBeVisible(),
+      expect(screen.getByText(subname.truncatedName.replace('.arb', ''))).toBeVisible(),
     )
   })
   it('should show create subname button if canEdit is true', () => {

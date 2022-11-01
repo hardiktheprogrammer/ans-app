@@ -2,7 +2,7 @@ import { acceptMetamaskAccess } from '../../setup'
 
 const profiles = [
   {
-    name: 'taytems.eth',
+    name: 'taytems.arb',
     records: [
       {
         type: 'snippet',
@@ -61,17 +61,17 @@ const profiles = [
     owners: [
       {
         type: 'controller',
-        value: 'cold.taytems.eth',
+        value: 'cold.taytems.arb',
       },
       {
         type: 'registrant',
-        value: 'cold.taytems.eth',
+        value: 'cold.taytems.arb',
       },
     ],
     expiry: 'November 13, 2025',
   },
   {
-    name: 'ens.eth',
+    name: 'ens.arb',
     records: [
       {
         type: 'snippet',
@@ -100,7 +100,7 @@ const profiles = [
         key: 'snapshot',
         value: 'ipns://storage....',
         fullValue:
-          'ipns://storage.snapshot.page/registry/0xb6E040C9ECAaE172a89bD561c5F73e1C48d28cd9/ens.eth',
+          'ipns://storage.snapshot.page/registry/0xb6E040C9ECAaE172a89bD561c5F73e1C48d28cd9/ens.arb',
       },
       {
         type: 'other',

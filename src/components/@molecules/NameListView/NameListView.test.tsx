@@ -19,7 +19,7 @@ describe('NameListView', () => {
         currentPage={
           [
             {
-              name: 'name.eth',
+              name: 'name.arb',
               id: '0x123',
               expiryDate: '2020-01-01',
               isController: true,
@@ -30,7 +30,7 @@ describe('NameListView', () => {
         network={1}
       />,
     )
-    expect(getByText('name.eth')).toBeInTheDocument()
+    expect(getByText('name.arb')).toBeInTheDocument()
   })
   it('should render no results if there are no results', () => {
     const { queryByText } = render(<NameListView currentPage={[]} network={1} />)

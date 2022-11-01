@@ -24,7 +24,7 @@ describe('Profile Editor', () => {
   })
 
   it('should be able to update resolver if profile has been migrated but resolver has not been updated', () => {
-    cy.visit('/profile/migrated-resolver-to-be-updated.eth')
+    cy.visit('/profile/migrated-resolver-to-be-updated.arb')
     connectFromExisting()
     cy.contains('Edit Profile').click()
     cy.findByTestId('warning-overlay').should('be.visible')
@@ -36,7 +36,7 @@ describe('Profile Editor', () => {
   })
 
   it('should be able to migrate account to new resolver', () => {
-    cy.visit('/profile/test123.eth')
+    cy.visit('/profile/test123.arb')
     connectFromExisting()
     cy.contains('Edit Profile').click()
     cy.findByTestId('warning-overlay').should('be.visible')
@@ -53,7 +53,7 @@ describe('Profile Editor', () => {
   })
 
   it('should be able to update account', () => {
-    cy.visit('/profile/wrapped.eth')
+    cy.visit('/profile/wrapped.arb')
     connectFromExisting()
     cy.contains('Edit Profile').click()
     cy.findByPlaceholderText('John Smith').type('Test Name')

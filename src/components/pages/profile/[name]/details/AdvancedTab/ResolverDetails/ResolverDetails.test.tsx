@@ -18,7 +18,7 @@ const mockUseChainId = mockFunction(useChainId)
 describe('ResolverDetails', () => {
   mockUseRouter.mockReturnValue({
     query: {
-      name: 'nick.eth',
+      name: 'nick.arb',
     },
   })
   mockUseChainId.mockReturnValue(1)

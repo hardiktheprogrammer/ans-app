@@ -128,7 +128,7 @@ export const SendName = ({ data, dispatch, onDismiss }: Props) => {
       const result = await getRecords(sendNameWatch)
       return result?.address
     },
-    { enabled: sendNameWatch?.includes('.eth') },
+    { enabled: sendNameWatch?.includes('.arb') },
   )
 
   const { name: primaryName } = usePrimary(ethNameValidation || sendNameWatch)
@@ -259,7 +259,7 @@ export const SendName = ({ data, dispatch, onDismiss }: Props) => {
         return
       }
 
-      // .eth name
+      // .arb name
       dispatch({
         name: 'setTransactions',
         payload: [
@@ -275,7 +275,7 @@ export const SendName = ({ data, dispatch, onDismiss }: Props) => {
     }
 
     if (managerChoiceWatch && ownerChoiceWatch) {
-      // .eth name
+      // .arb name
       dispatch({
         name: 'setTransactions',
         payload: [
@@ -379,11 +379,11 @@ export const SendName = ({ data, dispatch, onDismiss }: Props) => {
             {...register('sendName', {
               validate: {
                 length: (value) =>
-                  !value.includes('.eth') && value.length !== 42
+                  !value.includes('.arb') && value.length !== 42
                     ? t('errors.addressLength')
                     : undefined,
                 isAddress: (value) =>
-                  !value.includes('.eth') && !ethers.utils.isAddress(value)
+                  !value.includes('.arb') && !ethers.utils.isAddress(value)
                     ? t('errors.invalidAddress')
                     : undefined,
               },

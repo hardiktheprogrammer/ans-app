@@ -46,7 +46,7 @@ type ProcessedSubname = {
 
 const names: Name[] = [
   {
-    name: 'wrapped.eth',
+    name: 'wrapped.arb',
     namedOwner: 'owner',
     subnames: [{ label: 'sub', namedOwner: 'deployer' }],
   },
@@ -61,7 +61,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const { getNamedAccounts, network } = hre
   const allNamedAccts = await getNamedAccounts()
 
-  const controller = await ethers.getContract('ETHRegistrarController')
+  const controller = await ethers.getContract('ARBRegistrarController')
   const publicResolver = await ethers.getContract('PublicResolver')
   const nameWrapper = await ethers.getContract('NameWrapper')
 
@@ -169,7 +169,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
 func.id = 'register-wrapped-names'
 func.tags = ['register-wrapped-names']
-func.dependencies = ['ETHRegistrarController']
+func.dependencies = ['ARBRegistrarController']
 func.runAtTheEnd = true
 
 export default func

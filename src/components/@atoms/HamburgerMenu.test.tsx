@@ -26,7 +26,7 @@ const mockUseRouter = mockFunction(useRouter)
 describe('HamburgerMenu', () => {
   mockUseRouter.mockReturnValue({
     query: {
-      name: 'nick.eth',
+      name: 'nick.arb',
     },
   })
 

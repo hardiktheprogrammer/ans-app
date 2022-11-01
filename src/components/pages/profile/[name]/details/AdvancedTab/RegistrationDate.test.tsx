@@ -18,7 +18,7 @@ const mockUseGetHistory = mockFunction(useGetHistory)
 describe('RegistrationDate', () => {
   const routerObject = {
     query: {
-      name: 'nick.eth',
+      name: 'nick.arb',
     },
   }
 
@@ -50,7 +50,7 @@ describe('RegistrationDate', () => {
   it('should render', () => {
     mockUseRouter.mockReturnValue({
       query: {
-        name: 'nick.eth',
+        name: 'nick.arb',
       },
     })
     mockUseProvider.mockReturnValue({})

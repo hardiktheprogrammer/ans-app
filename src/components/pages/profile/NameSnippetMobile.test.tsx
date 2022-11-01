@@ -21,7 +21,7 @@ describe('NameSnippetMobile', () => {
   })
 
   const baseMockData = {
-    name: 'nick.eth',
+    name: 'nick.arb',
     network: 1,
   }
 

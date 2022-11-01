@@ -45,7 +45,7 @@ export const TaggedNameItem = ({
 }) => {
   const { t } = useTranslation('common')
 
-  const isNativeEthName = /\.eth$/.test(name) && name.split('.').length === 2
+  const isNativeEthName = /\.arb$/.test(name) && name.split('.').length === 2
 
   const tags: [disabled: boolean, translation: string][] = []
 

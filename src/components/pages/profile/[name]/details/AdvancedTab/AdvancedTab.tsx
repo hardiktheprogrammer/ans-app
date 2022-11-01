@@ -64,7 +64,7 @@ export const generateAccordionData = (
     body: TokenId,
     name: 'tokenId',
   },
-  ...(name.split('.').length === 2 && name.startsWith('.eth')
+  ...(name.split('.').length === 2 && name.startsWith('.arb')
     ? [
         {
           title: t('details.tabs.advanced.registrationDate.label'),

@@ -11,7 +11,7 @@ describe('Set Primary Name', () => {
   describe('profile', () => {
     describe('differening ETH record', () => {
       it('should show primary name action in profile dropdown', () => {
-        cy.visit('/profile/other-eth-record.eth')
+        cy.visit('/profile/other-eth-record.arb')
         connectFromExisting()
         cy.findByTestId('profile-actions').click()
         cy.findByText('Set as primary name').click()
@@ -25,7 +25,7 @@ describe('Set Primary Name', () => {
       })
       it('should allow setting ETH record', () => {
         cy.findByTestId('display-item-action-normal').should('contain.text', 'Update ETH address')
-        cy.findByTestId('display-item-name-normal').should('contain.text', 'other-eth-record.eth')
+        cy.findByTestId('display-item-name-normal').should('contain.text', 'other-eth-record.arb')
         cy.findByTestId('display-item-address-normal').should('contain.text', '0x709...c79C8')
         cy.findByTestId('transaction-modal-confirm-button').click()
         cy.confirmMetamaskTransaction()
@@ -33,7 +33,7 @@ describe('Set Primary Name', () => {
       })
       it('should allow setting primary name', () => {
         cy.findByTestId('display-item-action-normal').should('contain.text', 'Set primary name')
-        cy.findByTestId('display-item-name-normal').should('contain.text', 'other-eth-record.eth')
+        cy.findByTestId('display-item-name-normal').should('contain.text', 'other-eth-record.arb')
         cy.findByTestId('display-item-address-normal').should('contain.text', '0x709...c79C8')
         cy.findByTestId('transaction-modal-confirm-button').click()
         cy.confirmMetamaskTransaction()
@@ -46,12 +46,12 @@ describe('Set Primary Name', () => {
         cy.visit('/my/settings')
         const wrapper = cy.findByTestId('primary-wrapper')
         wrapper.should('exist')
-        wrapper.should('include.text', 'other-eth-record.eth')
+        wrapper.should('include.text', 'other-eth-record.arb')
       })
     })
     describe('same ETH record', () => {
       it('should show primary name action in profile dropdown', () => {
-        cy.visit('/profile/test123.eth')
+        cy.visit('/profile/test123.arb')
         connectFromExisting()
         cy.findByTestId('profile-actions').click()
         cy.findByText('Set as primary name').click()
@@ -59,7 +59,7 @@ describe('Set Primary Name', () => {
       it('should allow setting primary name', () => {
         cy.wait(350)
         cy.findByTestId('display-item-action-normal').should('contain.text', 'Set primary name')
-        cy.findByTestId('display-item-name-normal').should('contain.text', 'test123.eth')
+        cy.findByTestId('display-item-name-normal').should('contain.text', 'test123.arb')
         cy.findByTestId('display-item-address-normal').should('contain.text', '0x709...c79C8')
         cy.findByTestId('transaction-modal-confirm-button').click()
         cy.confirmMetamaskTransaction()
@@ -72,7 +72,7 @@ describe('Set Primary Name', () => {
         cy.visit('/my/settings')
         const wrapper = cy.findByTestId('primary-wrapper')
         wrapper.should('exist')
-        wrapper.should('include.text', 'test123.eth')
+        wrapper.should('include.text', 'test123.arb')
       })
     })
   })
@@ -83,16 +83,16 @@ describe('Set Primary Name', () => {
     })
     it('should not show current primary name in list', () => {
       cy.findByTestId('radiogroup').then((el) => {
-        cy.wrap(el).findByText('test123.eth').should('not.exist')
+        cy.wrap(el).findByText('test123.arb').should('not.exist')
       })
     })
     it('should allow setting primary name', () => {
       cy.findByTestId('radiogroup').then((el) => {
-        cy.wrap(el).findByText('other-eth-record.eth').click()
+        cy.wrap(el).findByText('other-eth-record.arb').click()
       })
       cy.findByTestId('primary-next').click()
       cy.findByTestId('display-item-action-normal').should('contain.text', 'Set primary name')
-      cy.findByTestId('display-item-name-normal').should('contain.text', 'other-eth-record.eth')
+      cy.findByTestId('display-item-name-normal').should('contain.text', 'other-eth-record.arb')
       cy.findByTestId('display-item-address-normal').should('contain.text', '0x709...c79C8')
       cy.findByTestId('transaction-modal-confirm-button').click()
       cy.confirmMetamaskTransaction()
@@ -101,7 +101,7 @@ describe('Set Primary Name', () => {
     it('should show changes', () => {
       const wrapper = cy.findByTestId('primary-wrapper')
       wrapper.should('exist')
-      wrapper.should('include.text', 'other-eth-record.eth')
+      wrapper.should('include.text', 'other-eth-record.arb')
     })
   })
 })

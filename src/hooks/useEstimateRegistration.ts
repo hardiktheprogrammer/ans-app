@@ -66,9 +66,11 @@ const useEstimateRegistration = (data: RegistrationProps | undefined) => {
       } else {
         coinTypeInstance = formatsByName[key.toUpperCase()]
       }
-      const encodedAddress = coinTypeInstance.decoder(value)
-      const bytesAsDataInx = byteLengthToDataInx(encodedAddress.byteLength)
-      limit += addr.find(([dataInx]) => bytesAsDataInx >= dataInx)![1]
+      console.log(coinTypeInstance);
+      /** Code disabled */ 
+      // const encodedAddress = coinTypeInstance.decoder(value)
+      // const bytesAsDataInx = byteLengthToDataInx(encodedAddress.byteLength)
+      // limit += addr.find(([dataInx]) => bytesAsDataInx >= dataInx)![1]
     }
 
     return BigNumber.from(limit).mul(feeData.maxFeePerGas!)

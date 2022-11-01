@@ -32,9 +32,9 @@ describe('useRegistrationStatus', () => {
     getOwner: mockGetOwner,
     batch: mockBatch,
   })
-  describe('2LD .eth', () => {
+  describe('2LD .arb', () => {
     it('should return short if a name is less than 3 characters', async () => {
-      const { result, waitForNextUpdate } = renderHook(() => useRegistrationStatus('12.eth'))
+      const { result, waitForNextUpdate } = renderHook(() => useRegistrationStatus('12.arb'))
       await waitForNextUpdate()
 
       expect(result.current.data).toBe('short')
@@ -42,7 +42,7 @@ describe('useRegistrationStatus', () => {
     it("should return invalid if batch call doesn't return", async () => {
       mockBatch.mockResolvedValue(null)
 
-      const { result, waitForNextUpdate } = renderHook(() => useRegistrationStatus('test.eth'))
+      const { result, waitForNextUpdate } = renderHook(() => useRegistrationStatus('test.arb'))
       await waitForNextUpdate()
 
       expect(result.current.data).toBe('invalid')
@@ -55,7 +55,7 @@ describe('useRegistrationStatus', () => {
       })
       mockGetPrice.batch.mockReturnValue({})
 
-      const { result, waitForNextUpdate } = renderHook(() => useRegistrationStatus('test.eth'))
+      const { result, waitForNextUpdate } = renderHook(() => useRegistrationStatus('test.arb'))
       await waitForNextUpdate()
 
       expect(result.current.data).toBe('registered')
@@ -68,7 +68,7 @@ describe('useRegistrationStatus', () => {
       })
       mockGetPrice.batch.mockReturnValue({})
 
-      const { result, waitForNextUpdate } = renderHook(() => useRegistrationStatus('test.eth'))
+      const { result, waitForNextUpdate } = renderHook(() => useRegistrationStatus('test.arb'))
       await waitForNextUpdate()
 
       expect(result.current.data).toBe('gracePeriod')
@@ -83,7 +83,7 @@ describe('useRegistrationStatus', () => {
         premium: BigNumber.from(1),
       })
 
-      const { result, waitForNextUpdate } = renderHook(() => useRegistrationStatus('test.eth'))
+      const { result, waitForNextUpdate } = renderHook(() => useRegistrationStatus('test.arb'))
       await waitForNextUpdate()
 
       expect(result.current.data).toBe('premium')
@@ -98,7 +98,7 @@ describe('useRegistrationStatus', () => {
         premium: BigNumber.from(0),
       })
 
-      const { result, waitForNextUpdate } = renderHook(() => useRegistrationStatus('test.eth'))
+      const { result, waitForNextUpdate } = renderHook(() => useRegistrationStatus('test.arb'))
       await waitForNextUpdate()
 
       expect(result.current.data).toBe('available')

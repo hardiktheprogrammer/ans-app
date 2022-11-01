@@ -8,8 +8,8 @@ describe('Register Name', () => {
   describe('normal registration', () => {
     it('should redirect to the registration page on search', () => {
       cy.visit('/')
-      cy.findByTestId('search-input-box').click().type('registration-normal.eth{enter}')
-      cy.findByText('Register registration-normal.eth').should('be.visible')
+      cy.findByTestId('search-input-box').click().type('registration-normal.arb{enter}')
+      cy.findByText('Register registration-normal.arb').should('be.visible')
     })
     it('should show primary name setting as checked', () => {
       cy.findByTestId('checkbox').should('be.checked')
@@ -86,8 +86,8 @@ describe('Register Name', () => {
     it('should not direct to the registration page on search', () => {
       cy.findByTestId('home-button').click()
       cy.wait(1000)
-      cy.findByTestId('search-input-box').click().type('registration-normal.eth{enter}')
-      cy.url().should('eq', 'http://localhost:3000/profile/registration-normal.eth')
+      cy.findByTestId('search-input-box').click().type('registration-normal.arb{enter}')
+      cy.url().should('eq', 'http://localhost:3000/profile/registration-normal.arb')
     })
     it('should show all records from registration', () => {
       cy.findByTestId('profile-snippet-name').should('contain.text', 'Test Name')
@@ -96,7 +96,7 @@ describe('Register Name', () => {
   })
   describe('not primary', () => {
     it('should show primary name setting as unchecked if primary already set', () => {
-      cy.visit('/register/registration-not-primary.eth')
+      cy.visit('/register/registration-not-primary.arb')
       cy.findByTestId('checkbox').should('not.be.checked')
     })
     it('should show set profile button on info step', () => {
@@ -119,7 +119,7 @@ describe('Register Name', () => {
   })
   describe('premium', () => {
     it('should allow registration', () => {
-      cy.visit('/register/name-with-premium.eth')
+      cy.visit('/register/name-with-premium.arb')
       connectFromExisting()
       cy.findByTestId('invoice-item-2-amount').should('be.visible')
       cy.findByTestId('next-button').click()

@@ -14,10 +14,10 @@ const mockComponent = ({ children }: { children: ReactNode }) => <div>{children}
 mockNameDetailItem.mockImplementation(mockComponent as any)
 
 describe('TaggedNameItem', () => {
-  it('should render registrant if .eth name', () => {
+  it('should render registrant if .arb name', () => {
     const { queryByText } = render(
       <TaggedNameItem
-        name="name.eth"
+        name="name.arb"
         expiryDate={'2020-01-01' as any}
         isController
         isRegistrant
@@ -26,7 +26,7 @@ describe('TaggedNameItem', () => {
     )
     expect(queryByText('name.owner')).toBeInTheDocument()
   })
-  it('should NOT render registrant if not a .eth name', () => {
+  it('should NOT render registrant if not a .arb name', () => {
     const { queryByText } = render(
       <TaggedNameItem
         name="name"

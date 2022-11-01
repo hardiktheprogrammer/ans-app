@@ -112,7 +112,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const allNamedAccts = await getNamedAccounts()
 
   const registry = await ethers.getContract('ANSRegistry')
-  const controller = await ethers.getContract('LegacyETHRegistrarController')
+  const controller = await ethers.getContract('LegacyARBRegistrarController')
   const publicResolver = await ethers.getContract('LegacyPublicResolver')
 
   const makeData = ({
@@ -158,7 +158,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
       const _controller = controller.connect(await ethers.getSigner(registrant))
       const commitTx = await _controller.commit(commitment, { nonce: nonce + index })
-      console.log(`Commiting commitment for ${label}.eth (tx: ${commitTx.hash})...`)
+      console.log(`Commiting commitment for ${label}.arb (tx: ${commitTx.hash})...`)
 
       return 1
     }
@@ -185,7 +185,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
           nonce: nonce + index,
         },
       )
-      console.log(`Registering name ${label}.eth (tx: ${registerTx.hash})...`)
+      console.log(`Registering name ${label}.arb (tx: ${registerTx.hash})...`)
 
       return 1
     }
@@ -200,8 +200,8 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
       let nonceRef = nonce + index
       const _publicResolver = publicResolver.connect(await ethers.getSigner(registrant))
 
-      const hash = namehash(`${label}.eth`)
-      console.log(`Setting records for ${label}.eth...`)
+      const hash = namehash(`${label}.arb`)
+      console.log(`Setting records for ${label}.arb...`)
       if (records.text) {
         console.log('TEXT')
         for (const { key, value } of records.text) {
@@ -249,7 +249,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
         const subOwner = allNamedAccts[namedSubOwner]
         const _registry = registry.connect(await ethers.getSigner(registrant))
         const subnameTx = await _registry.setSubnodeRecord(
-          namehash(`${label}.eth`),
+          namehash(`${label}.arb`),
           labelhash(subnameLabel),
           subOwner,
           resolver,
@@ -258,7 +258,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
             nonce: nonce + index + i,
           },
         )
-        console.log(`Creating subname ${subnameLabel}.${label}.eth (tx: ${subnameTx.hash})...`)
+        console.log(`Creating subname ${subnameLabel}.${label}.arb (tx: ${subnameTx.hash})...`)
       }
       return subnames.length
     }
@@ -267,11 +267,11 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
     (nonce: number) =>
     async ({ label, owner, registrant }: ReturnType<typeof makeData>, index: number) => {
       const _registry = registry.connect(await ethers.getSigner(registrant))
-      const setControllerTx = await _registry.setOwner(namehash(`${label}.eth`), owner, {
+      const setControllerTx = await _registry.setOwner(namehash(`${label}.arb`), owner, {
         nonce: nonce + index,
       })
       console.log(
-        `Setting controller for ${label}.eth to ${owner} (tx: ${setControllerTx.hash})...`,
+        `Setting controller for ${label}.arb to ${owner} (tx: ${setControllerTx.hash})...`,
       )
 
       return 1
@@ -336,7 +336,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const registrant = allNamedAccts['owner']
   const _registry = registry.connect(await ethers.getSigner(registrant))
   const subnameTx = await _registry.setSubnodeRecord(
-    namehash('test123.eth'),
+    namehash('test123.arb'),
     labelhash('sub'),
     registrant,
     resolver,
@@ -349,7 +349,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
 func.id = 'register-unwrapped-names'
 func.tags = ['register-unwrapped-names']
-func.dependencies = ['LegacyETHRegistrarController']
+func.dependencies = ['LegacyARBRegistrarController']
 func.runAtTheEnd = true
 
 export default func

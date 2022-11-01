@@ -67,12 +67,12 @@ describe('WrapperCallToAction', () => {
 
   it('should render', () => {
     mockResumeTransactionFlow.mockReturnValue(0)
-    render(<WrapperCallToAction name="test123.eth" />)
+    render(<WrapperCallToAction name="test123.arb" />)
     expect(screen.getByTestId('wrapper-cta-container')).toBeVisible()
     expect(screen.getByTestId('wrapper-cta-button')).toHaveTextContent('details.wrap.startLabel')
   })
   it('should set the current transaction on click', () => {
-    render(<WrapperCallToAction name="test123.eth" />)
+    render(<WrapperCallToAction name="test123.arb" />)
     screen.getByTestId('wrapper-cta-button').click()
     expect(mockCreateTransactionFlow).toHaveBeenCalled()
   })
@@ -106,20 +106,20 @@ describe('WrapperCallToAction', () => {
         ],
       },
     })
-    render(<WrapperCallToAction name="test123.eth" />)
+    render(<WrapperCallToAction name="test123.arb" />)
     screen.getByTestId('wrapper-cta-button').click()
     const args = mockCreateTransactionFlow.mock.lastCall
 
-    expect(args[0]).toBe('wrapName-test123.eth')
+    expect(args[0]).toBe('wrapName-test123.arb')
     expect(args[1].transactions[0].name).toEqual('migrateProfile')
-    expect(args[1].transactions[0].data).toEqual({ name: 'test123.eth' })
+    expect(args[1].transactions[0].data).toEqual({ name: 'test123.arb' })
     expect(args[1].transactions[1].name).toEqual('wrapName')
-    expect(args[1].transactions[1].data).toEqual({ name: 'test123.eth' })
+    expect(args[1].transactions[1].data).toEqual({ name: 'test123.arb' })
   })
 
   it('should show button as resumable if step is greater than 0', () => {
     mockGetResumeable.mockReturnValue(1)
-    render(<WrapperCallToAction name="test123.eth" />)
+    render(<WrapperCallToAction name="test123.arb" />)
     expect(screen.getByTestId('wrapper-cta-button')).toHaveTextContent('details.wrap.resumeLabel')
   })
 })

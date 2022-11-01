@@ -12,7 +12,7 @@ if (process.env.NEXT_PUBLIC_PROVIDER && process.env.NEXT_PUBLIC_DEPLOYMENT_ADDRE
     string
   >
   opts.getContractAddress = () => (contractName) =>
-    deploymentAddresses[contractName === 'ANSRegistryWithFallback' ? 'ANSRegistry' : contractName]
+    deploymentAddresses[contractName === 'ANSRegistry' ? 'ANSRegistry' : contractName]
 }
 
 if (process.env.NEXT_PUBLIC_GRAPH_URI) {

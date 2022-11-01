@@ -21,7 +21,7 @@ const props = {
   handleCancel: mockHandleCancel,
   handleSubmit: mockHandleSubmit,
   avatar: mockFile,
-  name: 'test.eth',
+  name: 'test.arb',
 }
 
 describe('<AvatarUpload />', () => {
@@ -72,7 +72,7 @@ describe('<AvatarUpload />', () => {
     fireEvent.click(screen.getByTestId('upload-button'))
     await waitFor(() =>
       expect(global.fetch).toBeCalledWith(
-        'https://avatar-upload.ens-cf.workers.dev/mainnet/test.eth',
+        'https://avatar-upload.ens-cf.workers.dev/mainnet/test.arb',
         {
           method: 'PUT',
           headers: {

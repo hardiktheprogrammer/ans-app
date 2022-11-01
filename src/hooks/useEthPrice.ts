@@ -6,7 +6,7 @@ import AggregatorInterface from '@ensdomains/ens-contracts/build/contracts/Aggre
 import { useChainId } from '@app/hooks/useChainId'
 import { useEns } from '@app/utils/EnsProvider'
 
-const ORACLE_ANS = 'eth-usd.data.eth'
+const ORACLE_ANS = 'eth-usd.data.arb'
 const ORACLE_GOERLI = '0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e'
 
 export const useEthPrice = () => {
@@ -18,7 +18,7 @@ export const useEthPrice = () => {
     ['use-eth-price'],
     async () => {
       let address
-      // Goerli
+      // Arbitrum GOERLI
       if (chainId === 421613) {
         address = ORACLE_GOERLI
       } else {

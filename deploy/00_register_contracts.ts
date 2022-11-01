@@ -27,7 +27,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const { getNamedAccounts, network } = hre
   const allNamedAccts = await getNamedAccounts()
 
-  const controller = await ethers.getContract('ETHRegistrarController')
+  const controller = await ethers.getContract('ARBRegistrarController')
   const publicResolver = await ethers.getContract('PublicResolver')
 
   await network.provider.send('anvil_setBlockTimestampInterval', [60])
@@ -53,7 +53,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
     const _controller = controller.connect(await ethers.getSigner(owner))
     const commitTx = await controller.commit(commitment)
-    console.log(`Commiting commitment for ${label}.eth (tx: ${commitTx.hash})...`)
+    console.log(`Commiting commitment for ${label}.arb (tx: ${commitTx.hash})...`)
     await commitTx.wait()
 
     await network.provider.send('evm_mine')
@@ -74,11 +74,11 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
         value: price,
       },
     )
-    console.log(`Registering name ${label}.eth (tx: ${registerTx.hash})...`)
+    console.log(`Registering name ${label}.arb (tx: ${registerTx.hash})...`)
     await registerTx.wait()
 
     if (subnames) {
-      console.log(`Setting subnames for ${label}.eth...`)
+      console.log(`Setting subnames for ${label}.arb...`)
       const nameWrapper = await ethers.getContract('NameWrapper')
       for (const {
         label: subnameLabel,
@@ -88,7 +88,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
         const subnameOwner = allNamedAccts[namedSubnameOwner]
         const _nameWrapper = nameWrapper.connect(await ethers.getSigner(owner))
         const setSubnameTx = await _nameWrapper.setSubnodeRecord(
-          namehash(`${label}.eth`),
+          namehash(`${label}.arb`),
           subnameLabel,
           subnameOwner,
           resolver,
@@ -100,14 +100,14 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
         await setSubnameTx.wait()
 
         if (subnameContract) {
-          console.log('setting', subnameContract, 'contract for', `${subnameLabel}.${label}.eth`)
+          console.log('setting', subnameContract, 'contract for', `${subnameLabel}.${label}.arb`)
           const _publicResolver = publicResolver.connect(await ethers.getSigner(subnameOwner))
 
           const contract = await ethers.getContract(subnameContract)
 
-          const hash = namehash(`${subnameLabel}.${label}.eth`)
+          const hash = namehash(`${subnameLabel}.${label}.arb`)
 
-          console.log('setting address records for ', `${subnameLabel}.${label}.eth`)
+          console.log('setting address records for ', `${subnameLabel}.${label}.arb`)
 
           const setAddrTx = await _publicResolver['setAddr(bytes32,uint256,bytes)'](
             hash,
@@ -128,7 +128,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
 func.id = 'register-contracts'
 func.tags = ['register-contracts']
-func.dependencies = ['ETHRegistrarController']
+func.dependencies = ['ARBRegistrarController']
 func.runAtTheEnd = true
 
 export default func

@@ -19,7 +19,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const registry = await ethers.getContract('ANSRegistry', await ethers.getSigner(owner))
   const resolver = await ethers.getContract('PublicResolver', await ethers.getSigner(owner))
   const registrar = await ethers.getContract('BaseRegistrarImplementation')
-  const controller = await ethers.getContract('ETHRegistrarController')
+  const controller = await ethers.getContract('ARBRegistrarController')
 
   const bulkRenewal = await deploy('BulkRenewal', {
     from: deployer,
@@ -65,7 +65,7 @@ func.dependencies = [
   'registry',
   'BaseRegistrarImplementation',
   'PublicResolver',
-  'ETHRegistrarController',
+  'ARBRegistrarController',
 ]
 
 export default func

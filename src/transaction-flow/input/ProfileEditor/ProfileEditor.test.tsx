@@ -198,7 +198,7 @@ describe('ProfileEditor', () => {
 
   it('should render', async () => {
     render(
-      <ProfileEditor data={{ name: 'test.eth' }} dispatch={mockDispatch} onDismiss={() => {}} />,
+      <ProfileEditor data={{ name: 'test.arb' }} dispatch={mockDispatch} onDismiss={() => {}} />,
     )
     await waitFor(() => {
       expect(screen.getByTestId('profile-editor')).toBeVisible()
@@ -207,7 +207,7 @@ describe('ProfileEditor', () => {
 
   it('should submit empty string when an existing record is deleted', async () => {
     render(
-      <ProfileEditor data={{ name: 'test.eth' }} dispatch={mockDispatch} onDismiss={() => {}} />,
+      <ProfileEditor data={{ name: 'test.arb' }} dispatch={mockDispatch} onDismiss={() => {}} />,
     )
 
     const tab = await screen.findByTestId('address-tab')
@@ -236,7 +236,7 @@ describe('ProfileEditor', () => {
 
   it('should submit a key and value when a new record is created', async () => {
     render(
-      <ProfileEditor data={{ name: 'test.eth' }} dispatch={mockDispatch} onDismiss={() => {}} />,
+      <ProfileEditor data={{ name: 'test.arb' }} dispatch={mockDispatch} onDismiss={() => {}} />,
     )
 
     const tab = await screen.findByTestId('address-tab')
@@ -269,7 +269,7 @@ describe('ProfileEditor', () => {
 
   it('should set submit button to disabled if new record is created an then deleted', async () => {
     render(
-      <ProfileEditor data={{ name: 'test.eth' }} dispatch={mockDispatch} onDismiss={() => {}} />,
+      <ProfileEditor data={{ name: 'test.arb' }} dispatch={mockDispatch} onDismiss={() => {}} />,
     )
 
     const tab = await screen.findByTestId('address-tab')
@@ -321,7 +321,7 @@ describe('ProfileEditor with old resolver', () => {
 
   it('should submit to key value to alternative dispatch if resolver address is not current', async () => {
     render(
-      <ProfileEditor data={{ name: 'test.eth' }} dispatch={mockDispatch} onDismiss={() => {}} />,
+      <ProfileEditor data={{ name: 'test.arb' }} dispatch={mockDispatch} onDismiss={() => {}} />,
     )
 
     const tab = await screen.findByTestId('address-tab')

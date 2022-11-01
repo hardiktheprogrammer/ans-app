@@ -5,17 +5,17 @@ describe('Create Subname', () => {
     acceptMetamaskAccess(2, true)
   })
   it('should not show add subname button when the connected wallet is the registrant but not the controller', () => {
-    cy.visit('/profile/other-controller.eth/details')
+    cy.visit('/profile/other-controller.arb/details')
     cy.findByTestId('subnames-tab').click()
     cy.findByTestId('add-subname-action', { timeout: 2000 }).should('not.exist')
   })
   it('should not show add subname button when the connected wallet does not own the name', () => {
-    cy.visit('/profile/other-registrant.eth/details')
+    cy.visit('/profile/other-registrant.arb/details')
     cy.findByTestId('subnames-tab').click()
     cy.findByTestId('add-subname-action', { timeout: 2000 }).should('not.exist')
   })
   it('should show add subname button when the connected wallet owns the name', () => {
-    cy.visit('/profile/test123.eth/details')
+    cy.visit('/profile/test123.arb/details')
     cy.findByTestId('subnames-tab').click()
     cy.findByTestId('add-subname-action').click()
   })
@@ -30,11 +30,11 @@ describe('Create Subname', () => {
     cy.findByTestId('transaction-modal-confirm-button').click()
     cy.confirmMetamaskTransaction()
     cy.findByTestId('transaction-modal-complete-button').click()
-    cy.findByText('test.test123.eth').should('be.visible')
+    cy.findByText('test.test123.arb').should('be.visible')
   })
   it('should allow creating a subnames if the user is the wrapped owner', () => {
     acceptMetamaskAccess(2)
-    cy.visit('/profile/wrapped.eth/details')
+    cy.visit('/profile/wrapped.arb/details')
     cy.findByTestId('subnames-tab').click()
     cy.findByTestId('add-subname-action').click()
     cy.findByTestId('add-subname-input').clear().type('test')
@@ -42,7 +42,7 @@ describe('Create Subname', () => {
     cy.findByTestId('transaction-modal-confirm-button').click()
     cy.confirmMetamaskTransaction()
     cy.findByTestId('transaction-modal-complete-button').click()
-    cy.findByText('test.wrapped.eth').should('be.visible')
+    cy.findByText('test.wrapped.arb').should('be.visible')
   })
   it('should not allow adding a subname that already exists', () => {
     cy.findByTestId('add-subname-action').click()

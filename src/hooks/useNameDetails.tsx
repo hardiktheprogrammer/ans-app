@@ -33,7 +33,7 @@ export const useNameDetails = (name: string) => {
     isFetched: dnsOwnerIsFetched,
     internal: { isFetchedAfterMount: dnsOwnerIsFetchedAfterMount },
   } = useQuery(['getDNSOwner', normalisedName], () => getDNSOwner(normalisedName), {
-    enabled: !!(normalisedName && valid) && !normalisedName?.endsWith('.eth'),
+    enabled: !!(normalisedName && valid) && !normalisedName?.endsWith('.arb'),
   })
   const dnsOwnerIsCachedData =
     dnsOwnerStatus === 'success' && dnsOwnerIsFetched && !dnsOwnerIsFetchedAfterMount
