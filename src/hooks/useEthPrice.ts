@@ -6,8 +6,8 @@ import AggregatorInterface from '@ensdomains/ens-contracts/build/contracts/Aggre
 import { useChainId } from '@app/hooks/useChainId'
 import { useEns } from '@app/utils/EnsProvider'
 
-const ORACLE_ANS = 'eth-usd.data.arb' 
-const ORACLE_GOERLI = '0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e'
+const ORACLE_ANS = 'eth-usd.data.arb'
+const ORACLE_GOERLI = '0x01459Ad336768d2293A52e6040632aa1EadD2602' // DummyOracle 
 
 export const useEthPrice = () => {
   const provider = useProvider()

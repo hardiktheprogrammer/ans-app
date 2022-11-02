@@ -80,6 +80,6 @@ export type FuseObj = {
 
 export type EthAddress = string
 
-export type CurrencyUnit = 'arb' | 'fiat'
+export type CurrencyUnit = 'eth' | 'fiat'
 export type FiatUnit = 'usd'
-export type CurrencyDisplay = 'arb' | FiatUnit
+export type CurrencyDisplay = 'eth' | FiatUnit

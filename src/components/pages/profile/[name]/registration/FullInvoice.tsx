@@ -44,8 +44,8 @@ const FullInvoice = ({
   const { t } = useTranslation('register')
   const fiatUnit = 'usd'
 
-  const [currencyUnit, setCurrencyUnit] = useState<CurrencyUnit>('arb')
-  const currencyDisplay = currencyUnit === 'fiat' ? fiatUnit : 'arb'
+  const [currencyUnit, setCurrencyUnit] = useState<CurrencyUnit>('eth')
+  const currencyDisplay = currencyUnit === 'fiat' ? fiatUnit : 'eth'
 
   const invoiceItems = useMemo(
     () => [
