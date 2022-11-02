@@ -35,7 +35,7 @@ describe('CurrencySwitch', () => {
     render(<CurrencySwitch onChange={mockChangeHandler} value="fiat" />)
     await userEvent.click(screen.getByTestId('currency-eth'))
     await waitFor(() => {
-      expect(mockChangeHandler).toBeCalledWith('arb')
+      expect(mockChangeHandler).toBeCalledWith('eth')
     })
   })
 })

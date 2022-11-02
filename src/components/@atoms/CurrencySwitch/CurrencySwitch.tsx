@@ -55,16 +55,16 @@ export const CurrencySwitch = ({ value, onChange, fiat = 'usd' }: Props) => {
   const rightRef = useRef<HTMLDivElement>(null)
 
   const toggleHandler: MouseEventHandler<HTMLDivElement> = (e) => {
-    const newValue = e.target === leftRef.current ? 'arb' : 'fiat'
+    const newValue = e.target === leftRef.current ? 'eth' : 'fiat'
     onChange(newValue)
   }
 
-  const side = value === 'arb' ? 'left' : 'right'
+  const side = value === 'eth' ? 'left' : 'right'
 
   return (
     <Container onClick={toggleHandler}>
       <Slider $side={side} data-testid="currency-switch" />
-      <Label ref={leftRef} data-testid="currency-eth" $active={value === 'arb'}>
+      <Label ref={leftRef} data-testid="currency-eth" $active={value === 'eth'}>
         ETH
       </Label>
       <Label ref={rightRef} data-testid="currency-fiat" $active={value === 'fiat'}>
